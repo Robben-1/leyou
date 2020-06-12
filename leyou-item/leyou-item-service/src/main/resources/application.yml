@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/leyou?serverTimezone=UTC  #Mysql 6.X版本以上，会报时区错误，需新增serverTimezone=UTC
+    username: root
+    password: root
+
+eureka:
+  client:
+    serviceUrl: # service-url 会报错
+      defaultZone: http://127.0.0.1:10086/eureka
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+
+mybatis:
+  type-aliases-package: com.leyou.item.pojo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

@@ -1,0 +1,22 @@
+server:
+  port: 10010
+
+spring:
+  application:
+    name: ly-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    register-with-eureka: true
+    registry-fetch-interval-seconds: 5
+
+zuul:
+  prefix: /api
+  routes:
+    item-service: /item/** #路由到商品的微服务
+    upload-service:
+      path: /upload/** #路由到上传文件/图片微服务
+      serviceId: upload-service
+      strip-preflix: false

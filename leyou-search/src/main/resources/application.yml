@@ -1,0 +1,13 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: search-service
+  data:
+    elasticsearch:
+      cluster-name: my-application  # 与elasticsearch的配置文件的name匹配；
+      cluster-nodes: 127.0.0.1:9300
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
